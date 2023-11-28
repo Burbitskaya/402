@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Название сайта</title>
+    <link rel="stylesheet" href="style.css" media="screen">
+</head>
+<body>
+<div class="modal" id="myModal">
+    <div class="modal-content" id="modalContent">
+        <span class="close" id="closeModal">&times;</span>
+        <p id="modalMessage"></p>
+    </div>
+</div>
+<header class="header">
+    <div class="center_div">
+        <a href="#" class="logo"><img src="images/logo.png" alt="logo"></a>
+        <input class="side-menu" type="checkbox" id="side-menu"/>
+        <label class="hamb" for="side-menu">
+            <span class="hamb-line"></span>
+        </label>
+        <nav class="nav" id="nav">
+            <ul class="menu">
+                <li><a href="#section-2" onclick="closeMenu()">Лаборатория</a></li>
+                <li><a href="#section-3" onclick="closeMenu()">Преподаватели</a></li>
+                <li><a href="#section-4" onclick="closeMenu()">Статьи</a></li>
+                <li><a href="#cont" onclick="closeMenu()">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<section id="section-1">
+    <div class="black">
+        <div class="content">
+            <div class="company-info">
+                <h1>ЛАБОРАТОРИЯ 402</h1>
+                <p>Текст о компані і аваывлоавысв
+                    аоывраорываолвыа
+                    ылавылоавыаовы апавп в ап вапав п ва пав
+                    ваапв ап авп ваав п вап п </p>
+            </div>
+            <div class="form" id="form">
+                <div class="form-header">
+                    <h3>
+                        Напиши нам прямо сейчас
+                    </h3>
+                </div>
+                <form id="contact-form" novalidate  autocomplete="off">
+                    <div class="inputGroup">
+                        <input type="text" id="name" name="name" required autocomplete="off">
+                        <label for="name">Имя</label>
+                    </div>
+
+                    <div class="inputGroup">
+                        <input type="email" id="email" name="email" required autocomplete="off">
+                        <label for="email">Email</label>
+                    </div>
+
+                    <div class="inputGroup">
+                        <textarea id="message" name="message" rows="5" required
+                                  autocomplete="off"></textarea>
+                        <label for="message">Сообщение</label>
+                    </div>
+
+                    <button type="submit" class="submit_button" id="submit_button">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="section-2" class="anchor">
+    <div class="sim-slider">
+        <ul class="sim-slider-list">
+            <li><img src="images/screen.png" alt="screen"></li> <!-- это экран -->
+            <li class="sim-slider-element"><img src="images/DefaultLaba.png" alt="screen"></li>
+        </ul>
+        <i class="arrow left"></i>
+        <i class="arrow right"></i>
+        <div class="sim-slider-dots"></div>
+    </div>
+    <div class="lab">
+        <h2>Лаборатория</h2>
+        <p>Самая крутая лаборатория, оснащенная и т д и т п </p>
+    </div>
+</section>
+<section id="section-3" class="anchor">
+    <div class="prep_description">
+        <h2>Преподаватели</h2>
+        <p>Небольшое предисловие о профессионалах своего дела </p>
+    </div>
+    <div class="prep_grid" id="prep_grid">
+    </div>
+</section>
+<section id="section-4" class="anchor">
+    <div class="articles_description">
+        <h2>Статьи</h2>
+    </div>
+    <div class="articles" id="articles">
+    </div>
+</section>
+<footer id="cont" class="anchor">
+    <div class="div_logo">
+        <p>
+            <a href="#" class="logo">Lоgo</a>
+        </p>
+    </div>
+<!--    <hr/>-->
+<!--    <div class="f_item">-->
+<!--        <h4>АДРЕС</h4>-->
+<!--        <p>-->
+<!--            г.Минск, ул. Платонова, 39<br/>-->
+<!--            БГУИР, 5 корпус, каб. 402-->
+<!--        </p>-->
+<!--    </div>-->
+<!--    <hr/>-->
+<!--    <div class="f_item">-->
+<!--        <h4>ВРЕМЯ РАБОТЫ</h4>-->
+<!--        <p>-->
+<!--            ПН-ПТ: 9:00-22:00<br/>-->
+<!--            CБ: 9:00-16:00-->
+<!--        </p>-->
+<!--    </div>-->
+<!--    <hr/>-->
+    <div class="f_item">
+        <h4>АДРЕС</h4>
+        <p>
+            г.Минск, ул. Платонова, 39<br/>
+            БГУИР, 5 корпус, каб. 402
+        </p>
+        <hr/>
+        <h4>ВРЕМЯ РАБОТЫ</h4>
+        <p>
+            ПН-ПТ: 9:00-22:00<br/>
+            CБ: 9:00-16:00
+        </p>
+        <hr/>
+        <h4>КОНТАКТЫ</h4>
+        <p class="contacts">
+            <img alt="Gmail" src="images/gmail.png">
+            lab402.bsuir@gmail.com
+        </p>
+    </div>
+    <hr/>
+<!--    <div class="contacts f_item">-->
+    <div class="form0" id="form0">
+        <div class="form-header0">
+            <h4>
+                СВЯЖИСЬ С НАМИ
+            </h4>
+        </div>
+        <form id="contact-form0" novalidate  autocomplete="off">
+            <div class="inputGroup0">
+                <input type="text" id="name0" name="name0" required autocomplete="off">
+                <label for="name0">Имя</label>
+            </div>
+
+            <div class="inputGroup0">
+                <input type="email" id="email0" name="email0" required autocomplete="off">
+                <label for="email0">Email</label>
+            </div>
+
+            <div class="inputGroup0">
+                        <textarea id="message0" name="message0" rows="5" required
+                                  autocomplete="off"></textarea>
+                <label for="message0">Сообщение</label>
+            </div>
+
+            <button type="submit" class="submit_button0" id="submit_button0">Отправить</button>
+        </form>
+<!--    </div>-->
+    </div>
+</footer>
+<script src="client.js"></script>
+
+</body>
+</html>
