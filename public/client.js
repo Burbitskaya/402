@@ -381,53 +381,55 @@ fetch('teachers.json')
     .then(async data => {
         // Get the container where the instructor profiles will be displayed
         const instructorContainer = document.getElementById('prep_grid');
-
+        const promises = [];
         // Loop through the instructors and create a profile for each
         for (const instructor of data) {
             const instructorProfile = document.createElement('div');
             instructorProfile.classList.add('prep_item');
-            const promises = [];
+
             const img = document.createElement('img');
             img.classList.add('avatar');
             img.src = 'images/person.png';
 
             const imageUrl = `images/teachers/${instructor.image}`;
-
             const imagePromise = checkImageExists(imageUrl)
                 .then(imageExists => {
                     if (imageExists) {
                         img.src = imageUrl;
                     } else {
-                        img.src = 'images/person.png'; // Set a placeholder image or handle the missing image case
+                        img.src = 'images/person.png';
                     }
                 })
                 .catch(error => {
                     console.error('Error checking image existence:', error);
-                    img.src = 'images/person.png'; // Handle errors by using a placeholder image
-                })
-                .finally(() => {
-                    const name = document.createElement('h3');
-                    name.classList.add('name');
-                    name.textContent = instructor.name;
-
-                    const jobTitle = document.createElement('p');
-                    jobTitle.classList.add('job_title');
-                    jobTitle.textContent = instructor.job_title;
-
-                    const info = document.createElement('p');
-                    info.classList.add('prep_info');
-                    info.textContent = instructor.info;
-
-                    instructorProfile.appendChild(img);
-                    instructorProfile.appendChild(name);
-                    instructorProfile.appendChild(jobTitle);
-                    instructorProfile.appendChild(info);
-
-                    instructorContainer.appendChild(instructorProfile);
-                    promises.push(imagePromise);
+                    img.src = 'images/person.png';
                 });
-            await Promise.all(promises);
-        };
+
+            const name = document.createElement('h3');
+            name.classList.add('name');
+            name.textContent = instructor.name;
+
+            const jobTitle = document.createElement('p');
+            jobTitle.classList.add('job_title');
+            jobTitle.textContent = instructor.job_title;
+
+            const info = document.createElement('p');
+            info.classList.add('prep_info');
+            info.textContent = instructor.info;
+
+            instructorProfile.appendChild(img);
+            instructorProfile.appendChild(name);
+            instructorProfile.appendChild(jobTitle);
+            instructorProfile.appendChild(info);
+
+            instructorContainer.appendChild(instructorProfile);
+            console.log(name);
+
+            promises.push(imagePromise);
+        }
+
+        // Дождитесь завершения всех запросов по изображениям перед продолжением
+        await Promise.all(promises);
     })
     .catch(error => console.error('Error fetching instructors:', error));
 
