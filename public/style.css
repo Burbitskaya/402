@@ -217,7 +217,7 @@ ul{
 
     .menu{
         float:none;
-        background-color: var(--blackop);
+        background-color: var(--black);
         color: var(--white);
     }
 
@@ -307,11 +307,11 @@ section {
 /*--------------------------------------------------------------------------------------------------------------------*/
 #section-1 {
     background-color: var(--black);
-    background-image: url("./images/background.jpg");
+    background-image: url("images/background.jpg");
     background-position:center center;
     background-attachment: fixed;
     background-size: cover;
-    -webkit-background-image: url("./images/background.jpg");
+    -webkit-background-image: url("images/background.jpg");
     -webkit-background-size: cover;
     height:calc(100vh - 3.5em);
     min-height: 700px;
@@ -470,6 +470,11 @@ select:-webkit-autofill:focus {
 }
 
 @media (max-width: 768px) {
+
+    #section-1{
+        background-image: url("images/background_mobile.jpg");
+        -webkit-background-image: url("images/background_mobile.jpg");
+    }
 
     .content {
         flex-direction: column;
