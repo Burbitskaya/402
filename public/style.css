@@ -720,9 +720,9 @@ span.sim-dot {
     background-position: center center;
     background-size: contain;
     object-fit: cover;
-    border-radius: 100px;
-    height: 200px;
-    width: 200px;
+    border-radius: 50%;
+    width: 90%;
+    aspect-ratio: 1/1;
 }
 
 
