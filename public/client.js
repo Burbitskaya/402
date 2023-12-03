@@ -325,7 +325,7 @@ document.getElementById("closeModal").addEventListener("click", closeModal);
 
 
 // ЧТЕНИЕ СТАТЕЙ ИЗ JSON
-fetch('articles.json')
+fetch('data/articles.json')
     .then(response => response.json())
     .then(data => {
         // Get the container where the articles will be displayed
@@ -356,27 +356,29 @@ fetch('articles.json')
             articleText.textContent = article.text;
             articleText.classList.add('art_text');
 
-            const divLink = document.createElement('div');
-            divLink.classList.add('art_div');
+            // const divLink = document.createElement('div');
+            // divLink.classList.add('art_div');
 
+            // const readMoreLink = document.createElement('a');
+            // readMoreLink.href = article.link;
+            // readMoreLink.textContent = 'Читать далее...';
+            // readMoreLink.classList.add('art_link');
             const readMoreLink = document.createElement('a');
             readMoreLink.href = article.link;
-            readMoreLink.textContent = 'Читать далее...';
             readMoreLink.classList.add('art_link');
-
-            divLink.appendChild(readMoreLink);
+            readMoreLink.appendChild(articleBlock);
             articleBlock.appendChild(articleHead);
             articleBlock.appendChild(articleText);
-            articleBlock.appendChild(divLink);
+          //  articleBlock.appendChild(readMoreLink);
 
-            articleContainer.appendChild(articleBlock);
+            articleContainer.appendChild(readMoreLink);
         });
     })
     .catch(error => console.error('Error fetching articles:', error));
 
 
 // ЧТЕНИЕ преподавателей ИЗ JSON
-fetch('teachers.json')
+fetch('data/teachers.json')
     .then(response => response.json())
     .then(async data => {
         // Get the container where the instructor profiles will be displayed

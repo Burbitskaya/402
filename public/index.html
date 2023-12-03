@@ -3,29 +3,29 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>Название сайта</title>
+    <title>Lab402</title>
     <link rel="stylesheet" href="style.css" media="screen">
 </head>
 <body>
 <div class="modal" id="myModal">
     <div class="modal-content" id="modalContent">
-        <span class="close" id="closeModal">&times;</span>
-        <p id="modalMessage"></p>
+        <h3 class="close" id="closeModal">&times;</h3>
+        <h4 id="modalMessage"></h4>
     </div>
 </div>
 <header class="header">
     <div class="center_div">
-        <a href="#" class="logo"><img src="images/logo.png" alt="logo"></a>
+       <a href="#" class="logo"><h4> Lab402</h4></a>
         <input class="side-menu" type="checkbox" id="side-menu"/>
         <label class="hamb" for="side-menu">
             <span class="hamb-line"></span>
         </label>
         <nav class="nav" id="nav">
             <ul class="menu">
-                <li><a href="#section-2" onclick="closeMenu()">Лаборатория</a></li>
-                <li><a href="#section-3" onclick="closeMenu()">Преподаватели</a></li>
-                <li><a href="#section-4" onclick="closeMenu()">Статьи</a></li>
-                <li><a href="#cont" onclick="closeMenu()">Контакты</a></li>
+                <li><p><a href="#section-2" onclick="closeMenu()">Лаборатория</a></p></li>
+                <li><p><a href="#section-3" onclick="closeMenu()">Преподаватели</a></p></li>
+                <li><p><a href="#section-4" onclick="closeMenu()">Статьи</a></p></li>
+                <li><p><a href="#cont" onclick="closeMenu()">Контакты</a></p></li>
             </ul>
         </nav>
     </div>
@@ -35,10 +35,16 @@
         <div class="content">
             <div class="company-info">
                 <h1>ЛАБОРАТОРИЯ 402</h1>
-                <p>Текст о компані і аваывлоавысв
-                    аоывраорываолвыа
-                    ылавылоавыаовы апавп в ап вапав п ва пав
-                    ваапв ап авп ваав п вап п </p>
+                <p>Небольшой текст предисловие, кто мы такие, наша цель, слоган и тому подобное</p>
+                <div>
+                <p>
+                    г.Минск, ул. Платонова, 39<br/>
+                    БГУИР, 5 корпус, каб. 402<br/>
+                    ПН-ПТ: 9:00-22:00<br/>
+                    CБ: 9:00-16:00
+                    lab402.bsuir@gmail.com
+                </p>
+                </div>
             </div>
             <div class="form" id="form">
                 <div class="form-header">
@@ -54,13 +60,13 @@
 
                     <div class="inputGroup">
                         <input type="email" id="email" name="email" required autocomplete="off">
-                        <label for="email">Email</label>
+                         <label for="email">Email</label>
                     </div>
 
                     <div class="inputGroup">
                         <textarea id="message" name="message" rows="5" required
                                   autocomplete="off"></textarea>
-                        <label for="message">Сообщение</label>
+                       <label for="message">Сообщение</label>
                     </div>
 
                     <button type="submit" class="submit_button" id="submit_button">Отправить</button>
@@ -81,7 +87,7 @@
     </div>
     <div class="lab">
         <h2>Лаборатория</h2>
-        <p>Самая крутая лаборатория, оснащенная и т д и т п </p>
+        <p>Самая крутая лаборатория, оснащенная всем современным оборудованием. Здесь проводятся ... </p>
     </div>
 </section>
 <section id="section-3" class="anchor">
@@ -101,9 +107,9 @@
 </section>
 <footer id="cont" class="anchor">
     <div class="div_logo">
-        <p>
-            <a href="#" class="logo">Lоgo</a>
-        </p>
+        <h4>
+            <a href="#" class="logo">Lab402</a>
+        </h4>
     </div>
 <!--    <hr/>-->
 <!--    <div class="f_item">-->
