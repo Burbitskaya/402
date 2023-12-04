@@ -117,9 +117,15 @@ p{
 }
 
 
-@media(max-width:400px) {
+@media(max-width: 379px) {
     body{
-        font-size: 13px;
+        font-size: 13.5px;
+    }
+}
+
+@media(min-width: 370px) and(max-width:400px) {
+    body{
+        font-size: 15px;
     }
 }
 
@@ -833,6 +839,7 @@ span.sim-dot {
 }
 
 .articles{
+    margin-top:-20px;
     width:100%;
 }
 
