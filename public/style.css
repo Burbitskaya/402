@@ -633,6 +633,11 @@ select:-webkit-autofill:focus {
     flex-direction: row;
 }
 
+.screen{
+    width:100%;
+    aspect-ratio: 4624/3468;
+}
+
 .lab{
     margin-left: 10px;
     flex: 1;
@@ -649,7 +654,7 @@ img {
 .sim-slider {
     flex: 1.5;
     min-width: 280px;
-    padding: 0.8em 50px 30px 50px;
+    padding: 0.5em 40px 2em 40px;
     background-color: white;
 }
 
@@ -681,19 +686,19 @@ img {
 }
 
 .arrow {
-    width: 20px;
-    height: 20px;
+    width: 3.5%;
+    aspect-ratio:1/1;
     position: absolute;
     cursor: pointer;
     opacity: 0.6;
     z-index: 4;
     border: solid var(--blue);
-    border-width: 0 5px 5px 0;
+    border-width: 0 0.25em 0.25em 0;
 }
 
 .right {
     right: 10px;
-    top: calc(45% - 10px);
+    top: calc(50% - 1.75em);
     display: block;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
@@ -701,7 +706,7 @@ img {
 
 .left {
     left: 10px;
-    top: calc(45% - 10px);
+    top: calc(50% - 1.75em);
     display: block;
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
@@ -722,12 +727,12 @@ div.sim-slider-dots {
 }
 
 span.sim-dot {
-    width: 10px;
-    height: 10px;
-    margin: 5px 7px;
+    width: 0.4em;
+    height: 0.4em;
+    margin: 0.5em 0.5em;
     padding: 0;
     display: inline-block;
-    border-radius: 5px;
+    border-radius: 0.2em;
     cursor: pointer;
 }
 

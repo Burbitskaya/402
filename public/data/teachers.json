@@ -18,7 +18,7 @@
     "info": "nick.petrovsky@bsuir.by"
   },
   {
-    "image":"",
+    "image":"shamyna.jpg",
     "name": "Шамына Артём Юрьевич",
     "job_title": "Старший преподаватель кафедры ПОИТ",
     "info": "shamyna@bsuir.by"
@@ -27,6 +27,6 @@
     "image": "kayky.jpg",
     "name": "Кайкы Михаил Николаевич",
     "job_title": "Инженер по разработке аппаратного обеспечения Syntacore",
-    "info": "kayky@bsuir.by"
+    "info": ""
   }
 ]
