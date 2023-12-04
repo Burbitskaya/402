@@ -94,21 +94,21 @@ body{
 
 
 h1{
-    font-size:2.4em;
+    font-size:2em;
     font-family: "Proxima Nova Black", sans-serif;
 }
 
 h2{
-    font-size:2em;
+    font-size:1.6em;
     font-family: "Proxima Nova Extrabold", sans-serif;
 }
 
 h3{
-    font-size:1.4em;
+    font-size:1.35em;
     font-family: "Proxima Nova Bold", sans-serif;
 }
 h4{
-    font-size:1.2em;
+    font-size:1.15em;
     font-family: "Proxima Nova Semibold", sans-serif;
 }
 p{
@@ -116,14 +116,21 @@ p{
     font-family: "Proxima Nova Regular", sans-serif;
 }
 
-@media(max-width:480px) {
+
+@media(max-width:400px) {
     body{
-        font-size: 17px;
+        font-size: 13px;
+    }
+}
+
+@media(min-width: 400px) and(max-width:480px) {
+    body{
+        font-size: 16px;
     }
 }
 
 
-@media(max-width:767px) {
+@media(min-width: 481px) and(max-width:767px) {
     body{
         font-size: 19px;
     }
@@ -137,15 +144,58 @@ p{
 
 @media (min-width: 992px) and (max-width:1199px)  {
     body{
-        font-size: 23px;
+        font-size: 22px;
     }
 }
 
 @media(min-width:1200px){
     body{
-        font-size: 24px;
+        font-size: 23px;
     }
 }
+
+
+@media(min-width:1440px){
+    body{
+        font-size: 25px;
+    }
+}
+
+
+@media(min-width:1600px){
+    body{
+        font-size: 29px;
+    }
+}
+
+
+@media(min-width:1800px){
+    body{
+        font-size: 35px;
+    }
+}
+
+
+@media(min-width:2000px){
+    body{
+        font-size: 37px;
+    }
+}
+
+
+@media(min-width:2200px){
+    body{
+        font-size: 40px;
+    }
+}
+
+
+@media(min-width:2400px){
+    body{
+        font-size: 45px;
+    }
+}
+
 
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -201,7 +251,6 @@ p{
 }
 
 
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*ХЭДЕР*/
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -221,6 +270,7 @@ ul{
     padding: 1em 5%;
     vertical-align: middle;
     z-index: 10000;
+    height: 3em;
 }
 
 .center_div{
@@ -275,7 +325,7 @@ ul{
 
 @media (max-width: 768px) {
     .nav{
-        top: 3.5em;
+        top: 3em;
         right:0;
         width: auto;
         position: fixed;
@@ -382,8 +432,8 @@ section {
     background-size: cover;
     -webkit-background-image: url("images/background.jpg");
     -webkit-background-size: cover;
-    height:calc(100vh - 3.5em);
-    min-height: 700px;
+    min-height:calc(100vh - 3em);
+    /*height:calc(100vh - 3em);*/
     /*filter: none;*/
     /*-webkit-filter: blur(0px);*/
     /*-moz-filter: blur(0px);*/
@@ -398,34 +448,42 @@ section {
 
 
 .content {
+    min-height:calc(100vh - 3em);
+    height: 100%;
     padding: 5vw;
     color: white;
     display: flex;
     justify-content: space-between;
-    height: 100%;
 }
 
 .black{
-    height:100%;
-    width: 100%;
-    /*background-color: rgb(30,34,170,0.2);*/
+    min-height:calc(100vh - 3em);
+    height: 100%;
+    width:100vw;
     background-color: var(--blackop);
 }
 
 .company-info {
-    flex: 1.5;
-    padding: 5vh 5vw 0 0;
+    flex:1.5;
+    padding: 0 5vw 0 0;
+}
+
+.top_contact{
+margin-top: 3%;
+}
+
+.top_contacts{
+    margin-top: 10%;
 }
 
 .form {
-    width:100%;
     padding: 10px;
     flex: 1;
     align-self: center;
     /*backdrop-filter: blur(10px);*/
     /*-webkit-backdrop-filter: blur(10px);*/
     border-radius: 20px;
-    max-width: 450px;
+    min-width: 30%;
 }
 
 .form-header{
@@ -440,7 +498,6 @@ section {
 
 .inputGroup input {
     backdrop-filter: blur(10px);
-    padding: 0.8em;
     outline: none;
     border: 3px solid var(--white);
     background-color: transparent;
@@ -448,6 +505,7 @@ section {
     width: 100%;
     color: var(--white) !important;
     position:relative;
+    padding: 0.8em;
     font-size: 0.8em;
     font-family: "Proxima Nova Light", sans-serif;
 }
@@ -488,11 +546,11 @@ select:-webkit-autofill:focus {
 .inputGroup label {
     z-index: 100;
     position: absolute;
-    left: 0.8em;
-    top: 0.6em;
     pointer-events: none;
     transition: all 0.3s ease;
     color: var(--white);
+    left: 0.8em;
+    top: 0.6em;
     font-size: 1em;
     font-family: "Proxima Nova Regular", sans-serif;
 }
@@ -513,13 +571,13 @@ select:-webkit-autofill:focus {
     float: right;
     backdrop-filter: blur(10px);
     width: auto;
-    height:2em;
     color: white;
     border-color: white;
     border-radius: 0.6em;
     border-width: 0.17em;
     padding: 0.2em;
-    font-size: 0.8em;
+    font-size: 1em;
+    height:2em;
     font-family: "Proxima Nova Semibold", sans-serif;
 }
 
@@ -530,11 +588,12 @@ select:-webkit-autofill:focus {
     backdrop-filter: blur(3px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 920px) {
 
     #section-1{
         background-image: url("images/background_mobile.jpg");
         -webkit-background-image: url("images/background_mobile.jpg");
+        height: 100%;
     }
 
     .content {
@@ -544,6 +603,11 @@ select:-webkit-autofill:focus {
     .company-info {
         flex: 1.5;
         padding: 0 10px 10px 10px;
+    }
+
+    .form{
+        max-width: 500px;
+        width:100%;
     }
 
 }
@@ -577,8 +641,7 @@ img {
 }
 
 .sim-slider {
-    flex: 2;
-    max-width: 1000px;
+    flex: 1.5;
     min-width: 280px;
     padding: 0.8em 50px 30px 50px;
     background-color: white;
@@ -675,6 +738,10 @@ span.sim-dot {
     .lab h2{
         text-align: center;
     }
+
+    .sim-slider{
+        width: 100%;
+    }
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -702,16 +769,16 @@ span.sim-dot {
     width: 100%;
     display: grid;
     grid-gap: 5vh 5vw;
-    grid-template-columns:repeat(auto-fit, minmax(200px, 350px)) ;
+    grid-template-columns:repeat(auto-fit, minmax(280px,25vw)); ;
     grid-auto-flow: row;
     justify-content: center;
 }
 
 .prep_item{
-    border-radius: 10px;
+    border-radius: 1em;
     background-color: var(--white);
     height:auto;
-    padding:15px;
+    padding:1em;
     text-align: center;
 }
 
@@ -721,10 +788,9 @@ span.sim-dot {
     background-size: contain;
     object-fit: cover;
     border-radius: 50%;
-    width: 90%;
+    width: 85%;
     aspect-ratio: 1/1;
 }
-
 
 .name{
     color:var(--blue);
@@ -738,6 +804,12 @@ span.sim-dot {
 
 .prep_info{
     color:var(--black);
+}
+
+@media (max-width: 767px) {
+    .prep_grid{
+        grid-template-columns:repeat(auto-fit, minmax(240px,30vw)); ;
+    }
 }
 
 
@@ -866,7 +938,8 @@ hr{
 
 .f_item hr{
     display:block;
-   margin: 0.5em auto;
+    margin: 0.5em auto;
+    max-width:100%;
 }
 
 .f_item{
@@ -885,7 +958,9 @@ hr{
 }
 
 .inputGroup0 input {
-    padding: 0.5em;
+    padding: 0.8em;
+    font-size: 0.8em;
+    font-family: "Proxima Nova Light", sans-serif;
     outline: none;
     border: 3px solid var(--white);
     background-color: transparent;
@@ -897,34 +972,27 @@ hr{
 .inputGroup0 textarea {
     background-color: transparent;
     resize: none;
-    padding: 0.5em;
+    padding: 0.8em;
+    font-size: 0.8em;
+    font-family: "Proxima Nova Light", sans-serif;
     outline: none;
     border: 3px solid var(--white);
     border-radius: 1em;
     width: 100%;
-    scrollbar-width: thin;
-    scrollbar-color: var(--gray) transparent;
+    color: var(--white) !important;
 }
 
 .inputGroup0 textarea::-webkit-scrollbar {
-    width: 5px;
-}
-
-.inputGroup0 textarea::-webkit-scrollbar-thumb {
-    background-color: var(--gray);
-    border-radius: 3px;
-}
-
-.inputGroup0 textarea::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 2em;
+    display:none;
 }
 
 .inputGroup0 label {
     z-index: 100;
     position: absolute;
     left: 0.8em;
-    top: 0.2em;
+    top: 0.6em;
+    font-size: 1em;
+    font-family: "Proxima Nova Regular", sans-serif;
     pointer-events: none;
     transition: all 0.3s ease;
     color: var(--white);
@@ -945,12 +1013,14 @@ hr{
     background-color: transparent;
     float: right;
     width: auto;
-    height:1.8em;
-    color: white;
-    border-color: white;
     border-radius: 0.6em;
     border-width: 0.17em;
-    padding: 0.1em;
+    padding: 0.2em;
+    font-size: 1em;
+    height:2em;
+    font-family: "Proxima Nova Semibold", sans-serif;
+    color: white;
+    border-color: white;
 }
 
 .submit_button0:hover{
@@ -966,6 +1036,7 @@ hr{
 
     .f_item{
         width:auto;
+        max-width: 90vw;
     }
 
     .form0{
