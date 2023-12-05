@@ -74,7 +74,7 @@
     --gray: #85888C;
     --blue: #1E22AA;
     --lightblue: #4e6ed0;
-    --blueop: rgb(30,34,170,0.4);
+    --blueop: rgb(30,34,170,0.6);
     --blackop: rgb(0,0,0,0.6);
 }
 
@@ -104,11 +104,11 @@ h2{
 }
 
 h3{
-    font-size:1.35em;
+    font-size:1.2em;
     font-family: "Proxima Nova Bold", sans-serif;
 }
 h4{
-    font-size:1.15em;
+    font-size:1.1em;
     font-family: "Proxima Nova Semibold", sans-serif;
 }
 p{
@@ -117,9 +117,9 @@ p{
 }
 
 
-@media(max-width: 379px) {
+@media(max-width: 369px) {
     body{
-        font-size: 13.5px;
+        font-size: 14px;
     }
 }
 
@@ -138,67 +138,67 @@ p{
 
 @media(min-width: 481px) and(max-width:767px) {
     body{
-        font-size: 19px;
+        font-size: 17px;
     }
 }
 
 @media (min-width: 768px) and (max-width:991px)  {
         body{
-            font-size: 21px;
+            font-size: 18px;
         }
     }
 
 @media (min-width: 992px) and (max-width:1199px)  {
     body{
-        font-size: 22px;
+        font-size: 19px;
     }
 }
 
 @media(min-width:1200px){
     body{
-        font-size: 23px;
+        font-size: 20px;
     }
 }
 
 
 @media(min-width:1440px){
     body{
-        font-size: 25px;
+        font-size: 21px;
     }
 }
 
 
 @media(min-width:1600px){
     body{
-        font-size: 29px;
+        font-size: 25px;
     }
 }
 
 
 @media(min-width:1800px){
     body{
-        font-size: 35px;
+        font-size: 26px;
     }
 }
 
 
 @media(min-width:2000px){
     body{
-        font-size: 37px;
+        font-size: 27px;
     }
 }
 
 
 @media(min-width:2200px){
     body{
-        font-size: 40px;
+        font-size: 28px;
     }
 }
 
 
 @media(min-width:2400px){
     body{
-        font-size: 45px;
+        font-size: 30px;
     }
 }
 
@@ -233,7 +233,7 @@ p{
 }
 
 .modal-content p{
-    margin-top:1em;
+    margin-top:1.5em;
 }
 
 .close {
@@ -503,9 +503,9 @@ margin-top: 3%;
 }
 
 .inputGroup input {
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(1.4em);
     outline: none;
-    border: 3px solid var(--white);
+    border: 0.15em solid var(--white);
     background-color: transparent;
     border-radius: 1em;
     width: 100%;
@@ -531,7 +531,7 @@ select:-webkit-autofill:focus {
     background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,174,255,0.04) 50%,rgba(255,255,255,0) 51%,rgba(0,174,255,0.03) 100%); }
 
 .inputGroup textarea {
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(1.4em);
     position:relative;
     color: var(--white) !important;
     resize: none;
@@ -539,7 +539,7 @@ select:-webkit-autofill:focus {
     font-size: 0.8em;
     font-family: "Proxima Nova Light", sans-serif;
     outline: none;
-    border: 3px solid var(--white);
+    border: 0.15em solid var(--white);
     background-color: transparent;
     border-radius: 1em;
     width: 100%;
@@ -575,7 +575,7 @@ select:-webkit-autofill:focus {
 .submit_button{
     background-color: transparent;
     float: right;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(1.5em);
     width: auto;
     color: white;
     border-color: white;
@@ -591,7 +591,7 @@ select:-webkit-autofill:focus {
     border-color: var(--lightblue);
     color: var(--lightblue);
     /*background-color: var(--lightblue);*/
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(0.3em);
 }
 
 @media (max-width: 920px) {
@@ -652,7 +652,7 @@ img {
 }
 
 .sim-slider {
-    flex: 1.5;
+    flex: 1;
     min-width: 280px;
     padding: 0.5em 40px 2em 40px;
     background-color: white;
@@ -690,10 +690,10 @@ img {
     aspect-ratio:1/1;
     position: absolute;
     cursor: pointer;
-    opacity: 0.6;
     z-index: 4;
-    border: solid var(--blue);
+    border: solid var(--blueop);
     border-width: 0 0.25em 0.25em 0;
+    background-color:transparent;
 }
 
 .right {
@@ -712,8 +712,10 @@ img {
     -webkit-transform: rotate(135deg);
 }
 
-.left:hover, .right:hover{
-    opacity: 1;
+.arrow:hover, .arrow:active {
+    border: solid var(--blue);
+    border-width: 0 0.25em 0.25em 0;
+    background-color:transparent;
 }
 
 div.sim-slider-dots {
@@ -772,15 +774,14 @@ span.sim-dot {
 
 .prep_description{
     text-align: center;
-    margin-bottom: 5vh;
+    margin-bottom: 2em;
 }
 
 .prep_grid{
-    margin-top:3%;
     width: 100%;
     display: grid;
     grid-gap: 5vh 5vw;
-    grid-template-columns:repeat(auto-fit, minmax(280px,25vw)); ;
+    grid-template-columns:repeat(auto-fit, minmax(280px,20vw)); ;
     grid-auto-flow: row;
     justify-content: center;
 }
@@ -804,6 +805,7 @@ span.sim-dot {
 }
 
 .name{
+    margin-top: 10px;
     color:var(--blue);
 }
 
@@ -918,8 +920,13 @@ footer{
     flex: 1 1 30%;
 }
 
+
+footer h3{
+margin-bottom: 1em;
+}
+
 footer h4{
-    margin-bottom: 0.5em;
+    margin-bottom: 0.6em;
 }
 
 footer p{
@@ -970,11 +977,11 @@ hr{
 }
 
 .inputGroup0 input {
-    padding: 0.8em;
+    padding: 0.5em;
     font-size: 0.8em;
     font-family: "Proxima Nova Light", sans-serif;
     outline: none;
-    border: 3px solid var(--white);
+    border: 0.15em solid var(--white);
     background-color: transparent;
     border-radius: 1em;
     width: 100%;
@@ -984,11 +991,11 @@ hr{
 .inputGroup0 textarea {
     background-color: transparent;
     resize: none;
-    padding: 0.8em;
+    padding: 0.5em;
     font-size: 0.8em;
     font-family: "Proxima Nova Light", sans-serif;
     outline: none;
-    border: 3px solid var(--white);
+    border: 0.15em solid var(--white);
     border-radius: 1em;
     width: 100%;
     color: var(--white) !important;
@@ -1002,7 +1009,7 @@ hr{
     z-index: 100;
     position: absolute;
     left: 0.8em;
-    top: 0.6em;
+    top: 0.4em;
     font-size: 1em;
     font-family: "Proxima Nova Regular", sans-serif;
     pointer-events: none;
@@ -1028,7 +1035,7 @@ hr{
     border-radius: 0.6em;
     border-width: 0.17em;
     padding: 0.2em;
-    font-size: 1em;
+    font-size: 0.9em;
     height:2em;
     font-family: "Proxima Nova Semibold", sans-serif;
     color: white;
