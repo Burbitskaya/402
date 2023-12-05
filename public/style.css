@@ -862,17 +862,24 @@ span.sim-dot {
 }
 
 .article h3{
-    margin-left:10px;
     line-break: auto;
+    margin-bottom: 0.5em;
+}
+
+.art_avtor{
+    text-align: right;
+    font-family: "Proxima Nova Light", sans-serif;
 }
 
 .art_head img{
-    width:3em;
+    width:2.5em;
+    float:left;
+    margin: 0.1em 0.3em 0.1em 0;
 }
 
 .art_head{
-    display:flex;
-    height: auto;
+    text-align: justify;
+    align-content: center;
     align-items: center;
 }
 /*.art_div{*/

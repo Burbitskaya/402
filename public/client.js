@@ -336,25 +336,26 @@ fetch('data/articles.json')
             const articleBlock = document.createElement('div');
             articleBlock.classList.add('article');
 
-            const articleHead = document.createElement('div');
-            articleHead.classList.add('art_head');
-
-            const imageDiv = document.createElement('div');
             const articleImage = document.createElement('img');
             articleImage.src = 'images/atricle.png'; // Set the image source as needed
-            imageDiv.appendChild(articleImage);
 
             const titleDiv = document.createElement('div');
-            const articleTitle = document.createElement('h3');
-            articleTitle.textContent = article.title;
-            titleDiv.appendChild(articleTitle);
+            const articleHead = document.createElement('h3');
+            articleHead.classList.add('art_head');
 
-            articleHead.appendChild(imageDiv);
-            articleHead.appendChild(titleDiv);
+
+            articleHead.appendChild(articleImage);
+            let textNode = document.createTextNode(article.title);
+            articleHead.appendChild(textNode);
+            titleDiv.appendChild(articleHead);
 
             const articleText = document.createElement('p');
             articleText.textContent = article.text;
             articleText.classList.add('art_text');
+
+            const articleAvtor = document.createElement('p');
+            articleAvtor.textContent = article.avtor;
+            articleAvtor.classList.add('art_avtor');
 
             // const divLink = document.createElement('div');
             // divLink.classList.add('art_div');
@@ -369,6 +370,7 @@ fetch('data/articles.json')
             readMoreLink.appendChild(articleBlock);
             articleBlock.appendChild(articleHead);
             articleBlock.appendChild(articleText);
+            articleBlock.appendChild(articleAvtor);
           //  articleBlock.appendChild(readMoreLink);
 
             articleContainer.appendChild(readMoreLink);
