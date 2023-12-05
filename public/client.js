@@ -239,20 +239,41 @@ window.addEventListener("scroll", () => {
 
 
 //ОТПРАВКА ПОЧТЫ НА СЕРВЕР И ВАЛИДАЦИЯ ФОРМЫ
-const emailInput = document.getElementById("email");
-
-emailInput.addEventListener("focusout", function () {
-    const email = emailInput.value;
-    // Проверка валидности email
-    if (!isValidEmail(email)) {
-        emailInput.value = "";
-    }
-});
 
 // Вспомогательная функция для валидации email
 function isValidEmail(email) {
     const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
     return emailRegex.test(email);
+}
+let myInputs = document.getElementsByTagName('input');
+let myEmails = document.getElementsByName('email');
+
+// Проходим по всем элементам коллекции
+for (let i = 0; i < myInputs.length; i++) {
+    let currentInput = myInputs[i];
+
+    // Добавляем обработчик события input
+    currentInput.addEventListener('focusout', function() {
+        checkBlur(currentInput);
+    });
+}
+
+for (let i = 0; i < myEmails.length; i++) {
+    let currentInput = myEmails[i];
+
+    // Добавляем обработчик события input
+    currentInput.addEventListener('input', function() {
+        isValidEmail(currentInput.value) ? currentInput.classList.remove('inval') : currentInput.classList.add('inval');
+    });
+}
+
+// Функция для добавления/удаления класса при вводе текста
+function checkBlur(input) {
+    if (input.value.trim() !== '') {
+        input.classList.add('non-empty');
+    } else {
+        input.classList.remove('non-empty');
+    }
 }
 
 document.getElementById("contact-form").addEventListener("submit", function (e) {
@@ -279,6 +300,79 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
     const modal = document.getElementById("myModal");
     const modalMessage = document.getElementById("modalMessage");
     const modalContent = document.getElementById("modalContent");
+
+    for (let i = 0; i < myInputs.length; i++) {
+        let currentInput = myInputs[i];
+        currentInput.classList.remove('non-empty');
+    }
+
+    fetch("/submit", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success) {
+
+                modalContent.classList.add("success-message");
+                modalMessage.textContent = 'Ваше письмо отправлено! С вами свяжутся в ближайшее время';
+                modal.style.display = "flex";
+
+                // Очищаем поля
+                nameInput.value = "";
+                emailInput.value = "";
+                messageInput.value = "";
+
+            } else {
+                modalContent.classList.add("error-message");
+                modalMessage.textContent = "Ошибка!";
+                modal.style.display = "flex";
+                console.error("Ошибка при отправке данных:", data.error);
+            }
+        })
+        .catch((error) => {
+            modalContent.classList.add("error-message");
+            modalMessage.textContent = "Ошибка подключения к серверу!";
+            modal.style.display = "flex";
+            console.error("Ошибка при отправке данных:", error);
+        });
+
+});
+
+
+document.getElementById("contact-form0").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nameInput = document.getElementById("name0");
+    const name=nameInput.value;
+    const emailInput = document.getElementById("email0");
+    const email = emailInput.value;
+    const messageInput = document.getElementById("message0");
+    const message = messageInput.value;
+
+    if(!name){
+        nameInput.focus();
+        return;
+    }
+
+    if (!isValidEmail(email)) {
+        emailInput.value = "";
+        emailInput.focus();
+        return;
+    }
+
+    const modal = document.getElementById("myModal");
+    const modalMessage = document.getElementById("modalMessage");
+    const modalContent = document.getElementById("modalContent");
+
+    for (let i = 0; i < myInputs.length; i++) {
+        let currentInput = myInputs[i];
+
+        currentInput.classList.remove('non-empty');
+    }
 
     fetch("/submit", {
         method: "POST",
@@ -312,7 +406,11 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
             modal.style.display = "flex";
             console.error("Ошибка при отправке данных:", error);
         });
+
 });
+
+
+
 
 // Закрывает модальное окно
 function closeModal() {
@@ -427,7 +525,6 @@ fetch('data/teachers.json')
             instructorProfile.appendChild(info);
 
             instructorContainer.appendChild(instructorProfile);
-            console.log(name);
 
             promises.push(imagePromise);
         }

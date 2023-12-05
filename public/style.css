@@ -76,6 +76,8 @@
     --lightblue: #4e6ed0;
     --blueop: rgb(30,34,170,0.6);
     --blackop: rgb(0,0,0,0.6);
+    --red: rgba(255, 0, 0, 0.5);
+    --green: rgba(0, 128, 0, 0.5);
 }
 
 *{
@@ -249,11 +251,11 @@ p{
 }
 
 .success-message {
-    border-color: rgba(0, 128, 0, 0.5) !important;
+    border-color: var(--green) !important;
 }
 
 .error-message {
-    border-color: rgba(255, 0, 0,0.5) !important;
+    border-color: var(--red) !important;
 }
 
 
@@ -561,15 +563,18 @@ select:-webkit-autofill:focus {
     font-family: "Proxima Nova Regular", sans-serif;
 }
 
-.inputGroup :is(input:focus, input:valid, textarea:focus, textarea:valid)~label {
+.inputGroup :is(input:focus, textarea:focus, input:valid, textarea:valid, input.non-empty)~label {
     transform: translateY(-50%) scale(.9);
     left: 0.8em;
     top: 0;
 }
 
-
-.inputGroup :is(input:focus, input:valid, textarea:focus, textarea:valid) {
+.inputGroup :is(input:focus, textarea:focus, input.non-empty:not(.inval), textarea:valid) {
     border-color: var(--lightblue);
+}
+
+.inputGroup :is(input.non-empty.inval) {
+    border-color: rgba(220, 96, 96, 0.5) !important;
 }
 
 .submit_button{
@@ -1024,15 +1029,17 @@ hr{
     color: var(--white);
 }
 
-.inputGroup0 :is(input:focus, input:valid, textarea:focus, textarea:valid)~label {
+.inputGroup0 :is(input:focus, textarea:focus, textarea:valid, input.non-empty)~label {
     transform: translateY(-50%) scale(.9);
     left: 0.8em;
     top: 0;
 }
 
-
-.inputGroup0 :is(input:focus, input:valid, textarea:focus, textarea:valid) {
+.inputGroup0 :is(input:focus, textarea:focus, input.non-empty:not(.inval), textarea:valid) {
     border-color: var(--lightblue);
+}
+.inputGroup0 :is(input.non-empty.inval) {
+    border-color: rgba(220, 96, 96, 0.5) !important;
 }
 
 .submit_button0{
