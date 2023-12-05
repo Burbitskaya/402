@@ -384,14 +384,14 @@ document.getElementById("contact-form0").addEventListener("submit", function (e)
         .then((response) => response.json())
         .then((data) => {
             if (data.success) {
+                modalContent.classList.add("success-message");
+                modalMessage.textContent = 'Ваше письмо отправлено! С вами свяжутся в ближайшее время';
+                modal.style.display = "flex";
+
                 // Очищаем поля
                 nameInput.value = "";
                 emailInput.value = "";
                 messageInput.value = "";
-
-                modalContent.classList.add("success-message");
-                modalMessage.textContent = 'Ваше письмо отправлено! С вами свяжутся в ближайшее время';
-                modal.style.display = "flex";
 
             } else {
                 modalContent.classList.add("error-message");
@@ -489,8 +489,11 @@ fetch('data/teachers.json')
             const instructorProfile = document.createElement('div');
             instructorProfile.classList.add('prep_item');
 
+            const img_div = document.createElement('div');
             const img = document.createElement('img');
             img.classList.add('avatar');
+            img_div.classList.add('avatar_conteiner');
+            img_div.appendChild(img);
             img.src = 'images/person.png';
 
             const imageUrl = `images/teachers/${instructor.image}`;
@@ -515,14 +518,16 @@ fetch('data/teachers.json')
             jobTitle.classList.add('job_title');
             jobTitle.textContent = instructor.job_title;
 
+            const inf_div= document.createElement('div');
             const info = document.createElement('p');
-            info.classList.add('prep_info');
+            inf_div.classList.add('prep_info');
+            inf_div.appendChild(info);
             info.textContent = instructor.info;
 
-            instructorProfile.appendChild(img);
+            instructorProfile.appendChild(img_div);
             instructorProfile.appendChild(name);
             instructorProfile.appendChild(jobTitle);
-            instructorProfile.appendChild(info);
+            instructorProfile.appendChild(inf_div);
 
             instructorContainer.appendChild(instructorProfile);
 
