@@ -395,7 +395,7 @@ document.getElementById("contact-form0").addEventListener("submit", function (e)
 
             } else {
                 modalContent.classList.add("error-message");
-                modalMessage.textContent = "Ошибка!";
+                modalMessage.textContent = "Ошибка! Нет подключения к сети";
                 modal.style.display = "flex";
                 console.error("Ошибка при отправке данных:", data.error);
             }

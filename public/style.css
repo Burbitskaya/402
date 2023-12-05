@@ -234,15 +234,15 @@ p{
     max-width:90vw;
 }
 
-.modal-content p{
-    margin-top:1.5em;
+.modal-content h4{
+    margin-top:1em;
 }
 
 .close {
     color: var(--gray);
     position: absolute;
-    top:5px;
-    right: 5px;
+    top:0.5em;
+    right: 0.5em;
     cursor: pointer;
 }
 
