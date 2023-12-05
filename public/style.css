@@ -659,7 +659,7 @@ img {
 .sim-slider {
     flex: 1;
     min-width: 280px;
-    padding: 0.5em 40px 2em 40px;
+    padding: 0.5em 5% 2em 5%;
     background-color: white;
 }
 
@@ -702,7 +702,7 @@ img {
 }
 
 .right {
-    right: 10px;
+    right: 1%;
     top: calc(50% - 1.75em);
     display: block;
     transform: rotate(-45deg);
@@ -710,7 +710,7 @@ img {
 }
 
 .left {
-    left: 10px;
+    left: 1%;
     top: calc(50% - 1.75em);
     display: block;
     transform: rotate(135deg);
@@ -734,12 +734,12 @@ div.sim-slider-dots {
 }
 
 span.sim-dot {
-    width: 0.4em;
-    height: 0.4em;
+    width: 0.5em;
+    height: 0.5em;
     margin: 0.5em 0.5em;
     padding: 0;
     display: inline-block;
-    border-radius: 0.2em;
+    border-radius: 0.5em;
     cursor: pointer;
 }
 
@@ -759,6 +759,7 @@ span.sim-dot {
 
     .sim-slider{
         width: 100%;
+        padding: 0.5em 8vw 2em 8vw;
     }
 }
 

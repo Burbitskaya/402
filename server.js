@@ -45,7 +45,7 @@ nodemailer.createTestAccount((err, account) => {
         const mailOptions = {
             from:  '"Node js" <nodejs@example.com>', // Адрес отправителя
             to: 'byrbitskaya2447@gmail.com', // Адрес получателя
-            subject: 'Новое сообщение с сайта', // Тема письма
+            subject: 'Новое сообщение с сайта lab402.by', // Тема письма
             text: `Имя: ${name}\nEmail: ${email}\nСообщение: ${message}` // Текст письма
         };
 
