@@ -333,7 +333,7 @@ ul{
 
 @media (max-width: 768px) {
     .nav{
-        top: 3em;
+        top: 2.95em;
         right:0;
         width: auto;
         position: fixed;
@@ -350,10 +350,12 @@ ul{
 
     .menu li{
         float: none;
-        padding:5px;
         margin:0;
+        padding: 1em 0;
     }
+
     .menu a{
+        padding:0;
         width:100vw;
         display: block;
     }
