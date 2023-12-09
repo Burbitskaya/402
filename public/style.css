@@ -443,17 +443,6 @@ section {
     -webkit-background-image: url("images/background.jpg");
     -webkit-background-size: cover;
     min-height:calc(100vh - 3em);
-    /*height:calc(100vh - 3em);*/
-    /*filter: none;*/
-    /*-webkit-filter: blur(0px);*/
-    /*-moz-filter: blur(0px);*/
-    /*-ms-filter: blur(0px);*/
-    /*image-rendering: pixelated;*/
-   /*image-rendering: -webkit-optimize-contrast;*/
-    /*image-rendering: -webkit-crisp-edges;*/
-    /*image-rendering: -o-crisp-edges;*/
-    /*image-rendering: -moz-crisp-edges;*/
-    /*image-rendering: crisp-edges;*/
 }
 
 
@@ -490,8 +479,6 @@ margin-top: 3%;
     padding: 10px;
     flex: 1;
     align-self: center;
-    /*backdrop-filter: blur(10px);*/
-    /*-webkit-backdrop-filter: blur(10px);*/
     border-radius: 20px;
     min-width: 30%;
 }
@@ -580,6 +567,7 @@ select:-webkit-autofill:focus {
 }
 
 .submit_button{
+    cursor: pointer;
     background-color: transparent;
     float: right;
     backdrop-filter: blur(1.5em);
@@ -597,18 +585,11 @@ select:-webkit-autofill:focus {
 .submit_button:hover{
     border-color: var(--lightblue);
     color: var(--lightblue);
-    /*background-color: var(--lightblue);*/
     backdrop-filter: blur(0.3em);
 }
 
-@media (max-width: 920px) {
 
-    #section-1{
-        background-image: url("images/background_mobile.jpg");
-        -webkit-background-image: url("images/background_mobile.jpg");
-        height: 100%;
-    }
-
+@media (max-aspect-ratio: 13/16) {
     .content {
         flex-direction: column;
     }
@@ -622,10 +603,156 @@ select:-webkit-autofill:focus {
         max-width: 500px;
         width:100%;
     }
+}
+
+@media (max-width: 920px) {
+
+    #section-1{
+        background-image: url("images/background_mobile.jpg");
+        -webkit-background-image: url("images/background_mobile.jpg");
+        height: 100%;
+    }
 
 }
 
 
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*НОВОСТНОЙ СЛАЙДЕР*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+#section-news {
+    /*background-color: #999999;*/
+    height: auto;
+    padding: 1em 5vw;
+    position: relative;
+    border-bottom: var(--blue) 0.2em solid;
+}
+
+.slider_container {
+    position: relative;
+    width: 100%;
+    max-width: 85vw; /* Максимальная ширина слайдера */
+    overflow: hidden;
+}
+
+.slider_wrapper {
+    display: flex;
+    /*justify-content: center;*/
+    transition: transform 0.5s ease-in-out;
+    /*margin: 0 -10px; !* Добавлены отступы, чтобы стрелки были вне слайдера *!*/
+}
+
+.slide {
+    /*aspect-ratio: 1/0.9;*/
+    flex: 0 0 25%;
+    overflow: hidden;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    align-items: center;
+    justify-content: center;
+    padding: 0 2%;
+}
+
+.slider_navigation {
+    position: absolute;
+    top: calc(50% - 1.6em);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
+}
+
+.slider_navigation button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2em;
+    outline: none;
+    color: var(--blueop);
+}
+
+#prevBtn:hover, #nextBtn:hover{
+    color: var(--blue);
+}
+
+.dots {
+    display: flex;
+    margin-top: 0.5em;
+    justify-content: center;
+}
+
+.dot {
+    height: 0.4em;
+    width: 0.4em;
+    background-color:var(--blueop);
+    border-radius: 50%;
+    margin: 0 0.2em;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--blue);
+}
+
+.im{
+  aspect-ratio: 1/0.6;
+    width:100%;
+    overflow: hidden;
+}
+
+.new_text{
+    text-align: justify;
+}
+
+.with{
+    cursor: pointer;
+}
+
+.with:hover{
+    text-decoration: underline;
+  color: var(--black);
+}
+
+.new_date{
+    height:10%;
+    align-self: start;
+    text-align: right;
+    font-family: "Proxima Nova Light", sans-serif !important;
+}
+
+.im img{
+    height:100%;
+    object-fit: cover;
+}
+
+.slide a{
+    color: var(--black);
+    text-decoration: none;
+}
+
+@media(max-width:480px) {
+
+    .slide {
+        flex: 0 0 100% ;
+        padding: 0 10%;
+    }
+}
+
+@media (min-width: 481px) and (max-width:991px)  {
+    .slide {
+        flex: 0 0 50% ;
+        padding: 0 5%;
+    }
+}
+
+
+@media (min-width: 992px) and (max-width:1199px)  {
+    .slide {
+        flex: 0 0 33% ;
+        padding: 0 3%;
+    }
+}
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*ЛАБОРАТОРИЯ*/
@@ -693,36 +820,29 @@ img {
 }
 
 .arrow {
-    width: 3.5%;
-    aspect-ratio:1/1;
+    color: var(--blueop);
+    background: none;
+    border: none;
+    font-size: 2.5em;
     position: absolute;
     cursor: pointer;
     z-index: 4;
-    border: solid var(--blueop);
-    border-width: 0 0.25em 0.25em 0;
-    background-color:transparent;
 }
 
 .right {
     right: 1%;
-    top: calc(50% - 1.75em);
+    top: calc(50% - 1em);
     display: block;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
 }
 
 .left {
     left: 1%;
-    top: calc(50% - 1.75em);
+    top: calc(50% - 1em);
     display: block;
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
 }
 
 .arrow:hover, .arrow:active {
-    border: solid var(--blue);
-    border-width: 0 0.25em 0.25em 0;
-    background-color:transparent;
+    color: var(--blue);
 }
 
 div.sim-slider-dots {
@@ -738,7 +858,7 @@ div.sim-slider-dots {
 span.sim-dot {
     width: 0.5em;
     height: 0.5em;
-    margin: 0.5em 0.5em;
+    margin: 0.5em 0.3em;
     padding: 0;
     display: inline-block;
     border-radius: 0.5em;
@@ -1059,6 +1179,7 @@ hr{
 }
 
 .submit_button0{
+    cursor: pointer;
     background-color: transparent;
     float: right;
     width: auto;

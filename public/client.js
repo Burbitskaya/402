@@ -1,6 +1,8 @@
-//СЛАЙДЕР С КАРТИНКАМИ ЛАБЫ
+//------------------------------------------------------------------------------------------------------------//
+//-------------------------------------СЛАЙДЕР С КАРТИНКАМИ ЛАБЫ----------------------------------------------//
+//------------------------------------------------------------------------------------------------------------//
 
-// Function to fetch image filenames from the server
+// Забрать картинки с сервера
 function fetchImageFilenames() {
     return fetch('/api/getImageFilenames')
         .then(response => {
@@ -16,7 +18,7 @@ function fetchImageFilenames() {
         });
 }
 
-//function to create and add image elements to the slider
+//Создание элементов с картинками лабы и добавление их на страницу
 function addImagesToSlider(filenames) {
     const sliderList = document.querySelector('.sim-slider-list');
 
@@ -33,23 +35,17 @@ function addImagesToSlider(filenames) {
     });
 }
 
-// Fetch image filenames and add them to the slider
+// Обработчик функции взятия элементов с сервера
 fetchImageFilenames()
     .then(filenames => addImagesToSlider(filenames))
     .catch(error => console.error('Error fetching image filenames:', error))
     .finally( ()=>new Sim());
 
-function Sim(sldrId) {
+//Логика слайдера
+function Sim() {
 
-    let id = document.getElementById(sldrId);
-    if(id) {
-        this.sldrRoot = id
-    }
-    else {
-        this.sldrRoot = document.querySelector('.sim-slider')
-    };
+    this.sldrRoot = document.querySelector('.sim-slider');
 
-    // Carousel objects
     this.sldrList = this.sldrRoot.querySelector('.sim-slider-list');
     this.sldrElements = this.sldrList.querySelectorAll('.sim-slider-element');
     this.sldrElemFirst = this.sldrList.querySelector('.sim-slider-element');
@@ -57,7 +53,6 @@ function Sim(sldrId) {
     this.rightArrow = this.sldrRoot.querySelector('.arrow.right');
     this.indicatorDots = this.sldrRoot.querySelector('div.sim-slider-dots');
 
-    // Initialization
     this.options = Sim.defaults;
     Sim.initialize(this)
 };
@@ -124,14 +119,11 @@ Sim.prototype.dotOff = function(num) {
 
 Sim.initialize = function(that) {
 
-    // Constants
     that.elemCount = that.sldrElements.length; // Количество элементов
 
-    // Variables
     that.currentElement = 0;
     let bgTime = getTime();
 
-    // Functions
     function getTime() {
         return new Date().getTime();
     };
@@ -144,7 +136,6 @@ Sim.initialize = function(that) {
         }, that.options.interval)
     };
 
-    // Start initialization
     if(that.elemCount <= 1) {   // Отключить навигацию
         that.options.auto = false; that.options.arrows = false; that.options.dots = false;
         that.leftArrow.style.display = 'none'; that.rightArrow.style.display = 'none'
@@ -210,12 +201,15 @@ Sim.initialize = function(that) {
 };
 
 
-//АКТИВНЫЕ ССЫЛКИ ПРИ ПРОКРУТКЕ СТРАНИЦЫ
+
+//------------------------------------------------------------------------------------------------------------//
+//-------------------------------АКТИВНЫЕ ССЫЛКИ ПРИ ПРОКРУТКЕ СТРАНИЦЫ--------------------------------------//
+//------------------------------------------------------------------------------------------------------------//
+
 const menuItems = document.querySelectorAll(".menu a");
 const sections = document.querySelectorAll(".anchor");
 
 window.addEventListener("scroll", () => {
-
     let current = "";
 
     // Определение активного раздела
@@ -238,13 +232,18 @@ window.addEventListener("scroll", () => {
 });
 
 
-//ОТПРАВКА ПОЧТЫ НА СЕРВЕР И ВАЛИДАЦИЯ ФОРМЫ
+
+
+//------------------------------------------------------------------------------------------------------------//
+//------------------------------ОТПРАВКА ПОЧТЫ НА СЕРВЕР И ВАЛИДАЦИЯ ФОРМ------------------------------------//
+//------------------------------------------------------------------------------------------------------------//
 
 // Вспомогательная функция для валидации email
 function isValidEmail(email) {
     const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
     return emailRegex.test(email);
 }
+
 let myInputs = document.getElementsByTagName('input');
 let myEmails = document.getElementsByName('email');
 
@@ -276,6 +275,7 @@ function checkBlur(input) {
     }
 }
 
+// Обработчик события submit для верхней формы(отправка на сервер)
 document.getElementById("contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -342,7 +342,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 
 });
 
-
+// Обработчик события submit для нижней формы(отправка на сервер)
 document.getElementById("contact-form0").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -409,9 +409,6 @@ document.getElementById("contact-form0").addEventListener("submit", function (e)
 
 });
 
-
-
-
 // Закрывает модальное окно
 function closeModal() {
     const modal = document.getElementById("myModal");
@@ -422,14 +419,20 @@ function closeModal() {
 document.getElementById("closeModal").addEventListener("click", closeModal);
 
 
-// ЧТЕНИЕ СТАТЕЙ ИЗ JSON
+
+
+
+
+//------------------------------------------------------------------------------------------------------------//
+//-------------------------------------------ЧТЕНИЕ СТАТЕЙ ИЗ JSON--------------------------------------------//
+//------------------------------------------------------------------------------------------------------------//
+
 fetch('data/articles.json')
     .then(response => response.json())
     .then(data => {
-        // Get the container where the articles will be displayed
+
         const articleContainer = document.getElementById('articles');
 
-        // Loop through the articles and create a block for each
         data.forEach(article => {
             const articleBlock = document.createElement('div');
             articleBlock.classList.add('article');
@@ -455,21 +458,14 @@ fetch('data/articles.json')
             articleAvtor.textContent = article.avtor;
             articleAvtor.classList.add('art_avtor');
 
-            // const divLink = document.createElement('div');
-            // divLink.classList.add('art_div');
-
-            // const readMoreLink = document.createElement('a');
-            // readMoreLink.href = article.link;
-            // readMoreLink.textContent = 'Читать далее...';
-            // readMoreLink.classList.add('art_link');
             const readMoreLink = document.createElement('a');
             readMoreLink.href = article.link;
             readMoreLink.classList.add('art_link');
+
             readMoreLink.appendChild(articleBlock);
             articleBlock.appendChild(articleHead);
             articleBlock.appendChild(articleText);
             articleBlock.appendChild(articleAvtor);
-          //  articleBlock.appendChild(readMoreLink);
 
             articleContainer.appendChild(readMoreLink);
         });
@@ -477,14 +473,21 @@ fetch('data/articles.json')
     .catch(error => console.error('Error fetching articles:', error));
 
 
-// ЧТЕНИЕ преподавателей ИЗ JSON
+
+
+
+
+//------------------------------------------------------------------------------------------------------------//
+//----------------------------------------ЧТЕНИЕ преподавателей ИЗ JSON---------------------------------------//
+//------------------------------------------------------------------------------------------------------------//
+
 fetch('data/teachers.json')
     .then(response => response.json())
     .then(async data => {
-        // Get the container where the instructor profiles will be displayed
+
         const instructorContainer = document.getElementById('prep_grid');
         const promises = [];
-        // Loop through the instructors and create a profile for each
+
         for (const instructor of data) {
             const instructorProfile = document.createElement('div');
             instructorProfile.classList.add('prep_item');
@@ -534,21 +537,34 @@ fetch('data/teachers.json')
             promises.push(imagePromise);
         }
 
-        // Дождитесь завершения всех запросов по изображениям перед продолжением
         await Promise.all(promises);
     })
     .catch(error => console.error('Error fetching instructors:', error));
 
 
+
+
+
+//------------------------------------------------------------------------------------------------------------//
+//--------------------------------ВСПОМОГАТЕЛЬНАЯ ФУНКЦИЯ-ПРОВЕРКА ИЗОБРАЖЕНИЯ--------------------------------//
+//------------------------------------------------------------------------------------------------------------//
+
 function checkImageExists(imageUrl) {
     return fetch(imageUrl, { method: 'HEAD' })
         .then(response => {
-            return response.ok; // Image exists if the response status is OK (200)
+            return response.ok;
         })
         .catch(error => {
-            return false; // Image doesn't exist or there was an error
+            return false;
         });
 }
+
+
+
+
+//------------------------------------------------------------------------------------------------------------//
+//-------------------------------------ЗАКРЫТИЕ МЕНЮ В МОБИЛЬНЫХ БРАУЗЕРАХ------------------------------------//
+//------------------------------------------------------------------------------------------------------------//
 
 function closeMenu(e){
     if (document.getElementById('side-menu').checked){
@@ -556,3 +572,165 @@ function closeMenu(e){
     }
 
 }
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------//
+//---------------------------------------------ЧТЕНИЕ НОВОСТЕЙ ИЗ JSON----------------------------------------//
+//------------------------------------------------------------------------------------------------------------//
+
+fetch('data/news.json')
+    .then(response => response.json())
+    .then(async data => {
+
+        const sliderWrapper = document.getElementById('sliderWrapper');
+        const promises = [];
+
+        for (const news of data) {
+            const slide = document.createElement('div');
+            slide.classList.add('slide');
+
+            sliderWrapper.appendChild(slide);
+
+            const news_date = document.createElement('p');
+            news_date.classList.add('new_date');
+            news_date.textContent = news.date;
+
+            slide.appendChild(news_date);
+
+            if (news.image) {
+                const imageUrl = `images/news/${news.image}`;
+                const imagePromise = checkImageExists(imageUrl)
+                    .then(imageExists => {
+                        if (imageExists) {
+                            const div_img = document.createElement('div');
+                            div_img.classList.add('im');
+                            const news_img = document.createElement('img');
+                            news_img.src= imageUrl;
+                            div_img.appendChild(news_img);
+                            slide.appendChild(div_img);
+                        } else {
+                            console.error('Image is not exist');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error checking image existence:', error);
+                    });
+                promises.push(imagePromise);
+            }
+
+            await Promise.all(promises);
+
+            const news_text = document.createElement('p');
+            news_text.classList.add('new_text');
+            if(news.link) {
+                news_text.classList.add('with');
+            }
+            news_text.textContent = news.text;
+
+
+            if (news.link) {
+                const news_link = document.createElement('a');
+                news_link.href = news.link;
+                news_text.appendChild(news_link);
+            }
+
+            slide.appendChild(news_text);
+        }
+    })
+    .catch(error => console.error('Error fetching news:', error))
+    .finally(()=>{
+        updateSlidesPerView();
+        createDots();
+    });
+
+
+//------------------------------------------------------------------------------------------------------------//
+//------------------------------------------------СЛАЙДЕР НОВОСТЕЙ--------------------------------------------//
+//------------------------------------------------------------------------------------------------------------//
+
+let currentSlide = 0;
+let slidesPerView = 0;
+
+function updateSlidesPerView() {
+    const wrapperWidth = document.querySelector('.slider_wrapper').offsetWidth;
+    const slide = document.querySelector('.slide');
+    const slideWidth = slide.offsetWidth;
+
+    slidesPerView = Math.max(1, Math.floor((wrapperWidth+20) / slideWidth));
+}
+
+function showSlide(index) {
+    const slides = document.querySelector('.slider_wrapper');
+    const totalSlides = document.querySelectorAll('.slide').length;
+    const dots = document.querySelector('.dots');
+
+    if (index >= totalSlides) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = totalSlides - slidesPerView;
+    } else {
+        currentSlide = index;
+    }
+
+    const transformValue = -currentSlide * (100 / slidesPerView) + '%';
+    slides.style.transform = 'translateX(' + transformValue + ')';
+
+    // Обновляем активные точки
+    const dotElements = Array.from(dots.children);
+    dotElements.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide / slidesPerView);
+    });
+}
+
+function nextSlide() {
+    showSlide(currentSlide + slidesPerView);
+}
+
+function prevSlide() {
+    showSlide(currentSlide - slidesPerView);
+}
+
+function createDots() {
+    const sliderNav = document.getElementById('sliderNavigation');
+    const dotsContainer = document.getElementById('dots');
+    const dotElements = Array.from(dotsContainer.children);
+
+    const totalSlides = document.querySelectorAll('.slide').length;
+    const dotsNeeded = Math.ceil(totalSlides / slidesPerView);
+    if(dotsNeeded<=1){
+        dotsContainer.style.display = 'none';
+        sliderNav.style.display = 'none';
+    } else{
+        dotsContainer.style.display = 'flex';
+        sliderNav.style.display = 'flex';
+
+        // Удаляем лишние точки
+        if (dotsNeeded < dotElements.length) {
+            for (let i = dotsNeeded; i < dotElements.length; i++) {
+                dotElements[i].remove();
+            }
+        }
+
+        // Добавляем новые точки при необходимости
+        for (let i = dotElements.length; i < dotsNeeded; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            dot.addEventListener('click', () => showSlide(i * slidesPerView));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    showSlide(currentSlide);
+}
+
+// Обновляем количество видимых слайдов при изменении размера окна
+document.addEventListener('DOMContentLoaded', ()=> {
+    window.addEventListener('resize', () => {
+        updateSlidesPerView();
+        createDots();
+        console.log('yes');
+    });
+});

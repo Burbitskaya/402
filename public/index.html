@@ -35,8 +35,8 @@
         <div class="content">
             <div class="company-info">
                 <div>
-                <h1>ЛАБОРАТОРИЯ 402</h1>
-                <p>Небольшой текст предисловие, кто мы такие, наша цель, слоган и тому подобное</p>
+                    <h1>ЛАБОРАТОРИЯ 402</h1>
+                    <p>Небольшой текст предисловие, кто мы такие, наша цель, слоган и тому подобное</p>
                 </div>
                 <div class="top_contacts">
                     <div class="top_contact">
@@ -58,7 +58,7 @@
             <div class="form" id="form">
                 <div class="form-header">
                     <h3>
-                       НАПИШИ НАМ ПРЯМО СЕЙЧАС
+                        НАПИШИ НАМ ПРЯМО СЕЙЧАС
                     </h3>
                 </div>
                 <form id="contact-form" novalidate autocomplete="off">
@@ -84,14 +84,29 @@
         </div>
     </div>
 </section>
+<section id="section-news">
+
+    <div class="slider_navigation" id="sliderNavigation">
+        <button id="prevBtn" onclick="prevSlide()">&#10094;</button>
+        <button id="nextBtn" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <div class="slider_container">
+        <div class="slider_wrapper" id="sliderWrapper">
+        </div>
+        <div class="dots" id="dots"></div>
+    </div>
+
+</section>
 <section id="section-2" class="anchor">
     <div class="sim-slider">
         <ul class="sim-slider-list">
             <li class="screen"></li>
         </ul>
-        <i class="arrow left"></i>
-        <i class="arrow right"></i>
+        <button class="arrow left">&#10094;</button>
+        <button class="arrow right">&#10095;</button>
         <div class="sim-slider-dots"></div>
+
     </div>
     <div class="lab">
         <h2>Лаборатория</h2>
@@ -119,23 +134,6 @@
             <a href="#" class="logo">Lab402</a>
         </h3>
     </div>
-    <!--    <hr/>-->
-    <!--    <div class="f_item">-->
-    <!--        <h4>АДРЕС</h4>-->
-    <!--        <p>-->
-    <!--            г.Минск, ул. Платонова, 39<br/>-->
-    <!--            БГУИР, 5 корпус, каб. 402-->
-    <!--        </p>-->
-    <!--    </div>-->
-    <!--    <hr/>-->
-    <!--    <div class="f_item">-->
-    <!--        <h4>ВРЕМЯ РАБОТЫ</h4>-->
-    <!--        <p>-->
-    <!--            ПН-ПТ: 9:00-22:00<br/>-->
-    <!--            CБ: 9:00-16:00-->
-    <!--        </p>-->
-    <!--    </div>-->
-    <!--    <hr/>-->
     <div class="f_item">
         <h4>АДРЕС</h4>
         <p>
@@ -156,7 +154,6 @@
         </p>
     </div>
     <hr/>
-    <!--    <div class="contacts f_item">-->
     <div class="form0" id="form0">
         <div class="form-header0">
             <h4>
@@ -182,10 +179,8 @@
 
             <button type="submit" class="submit_button0" id="submit_button0">Отправить</button>
         </form>
-        <!--    </div>-->
     </div>
 </footer>
 <script src="client.js"></script>
-
 </body>
 </html>
